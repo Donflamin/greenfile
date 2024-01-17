@@ -2,3 +2,35 @@
  * @file
  * Subtheme specific CSS.
  */
+@font-face {
+  font-family: "Branela";
+  src: url("fonts/BranelaRegular/BranelaRegular-z8vDL.otf") format("otf");
+}
+
+p {
+  color: green;
+}
+
+input[type="search"] {
+  width: 50px; /* Or your default size */
+  transition: all 0.5s;
+}
+
+input[type="search"]:hover,
+input[type="search"]:focus {
+  width: 300px; /* Expanded size */
+}
+
+.js-form-submit {
+  display: none;
+}
+
+/* LOGIN PAGE STYLE */
+
+.login-form-container {
+  font-size: 30px;
+  font-family: "Branela", sans-serif;
+}
+
+input #edit-name {
+}

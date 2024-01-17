@@ -1,0 +1,3 @@
+Började 22:30 17 jan
+
+Har jobbat mycket de senaste timmarna, lärde mig om hur custom moduler kan användas för att göra till exempel en egen login/out sida. Jag gjorde custom routing, moduler, templates, samt gjorde ändringar i greenfile.theme filen, för att ändra på login modulen. Jag fixade också med fonts, headern och search modulen. Jag har börjat med att göra sidan responsiv. Jag la till en placeholder text på min custom login form & sida med hjälp av hook_form_alter() i .theme filen.
