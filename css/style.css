@@ -2,23 +2,15 @@
  * @file
  * Subtheme specific CSS.
  */
+
 @font-face {
-  font-family: "Branela";
-  src: url("fonts/BranelaRegular/BranelaRegular-z8vDL.otf") format("otf");
+  font-family: "Playfair";
+  src: url("fonts/PlayfairDisplay-Regular.ttf") format("truetype");
 }
 
-p {
-  color: green;
-}
-
-input[type="search"] {
-  width: 50px; /* Or your default size */
-  transition: all 0.5s;
-}
-
-input[type="search"]:hover,
-input[type="search"]:focus {
-  width: 300px; /* Expanded size */
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
 }
 
 .js-form-submit {
@@ -29,8 +21,53 @@ input[type="search"]:focus {
 
 .login-form-container {
   font-size: 30px;
-  font-family: "Branela", sans-serif;
+  font-family: "Playfair", sans-serif;
 }
 
-input #edit-name {
+#search-block-form {
+  display: flex;
+  align-items: center;
+}
+
+a {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  font-family: "Playfair", sans-serif;
+}
+
+.search-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.search-icon {
+  /* Styles for the search icon */
+  width: 2rem;
+  height: 2rem;
+}
+
+.search-input {
+  top: 100%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+}
+
+.search-input.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+* {
+  outline: 1px red !important;
+}
+
+a #logo {
+  display: none !important;
 }

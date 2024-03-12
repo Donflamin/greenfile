@@ -10,3 +10,8 @@
     attach: function (context, settings) {},
   };
 })(Drupal);
+
+function toggleSearch() {
+  const searchInput = document.querySelector(".search-input");
+  searchInput.classList.toggle("active");
+}

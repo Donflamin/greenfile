@@ -73,24 +73,31 @@
 {% set sidebar_second_exists = page.sidebar_second|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim is not empty %}
 
 {% block head %}
-        <header class="bg-light py-3">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-4 col-5 justify-content-start d-flex">
-                    </div>
-                    <div class="col-md-4 col-2 justify-content-center d-flex">
-                        {{ drupal_form("Drupal\\search\\Form\\SearchBlockForm") }}
-                    </div>
-                    <div class="col-md-4 col-6 justify-content-end d-flex">
-                        {% if not user.is_authenticated %}
-                            {{ drupal_form("Drupal\\user\\Form\\UserLoginForm") }}
-                        {% else %}
-                            <a href="/user/logout">Logout</a>
-                        {% endif %}
-                    </div>
-                </div>
+        <header>
+
+          {# Menu toggle button, fixed top-right #}
+          <button type="button" class="btn position-fixed top-0 end-0 m-3"> Insert Menu Icon </button>
+
+          <div class="heroHeader container-fluid p-0 h-100">
+            <div class="something">
+
+              {# Wave animation for header #}
+              <div class="waveAnim position-absolute top-0 end-0 w-100 h-100">
+                <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.53/build/spline-viewer.js"></script>
+                <spline-viewer url="https://prod.spline.design/BKrYB9EWPUPZkmVw/scene.splinecode"></spline-viewer>
+              </div>
+
+              <div class="w-100 h-100">
+                <p>Hejsan svejsan</p>
+              </div>
+
+
+              <div class="collapsibleMenu row">
             </div>
+          </div>
+
         </header>
+
 {% endblock %}
 
 {% block content %}
@@ -103,11 +110,38 @@
                   {{ page.content }}
                 </section>
               </main>
+            {% if sidebar_first_exists %}
+              <div{{ sidebar_first_attributes }}>
+                <aside class="section" role="complementary">
+                  {{ page.sidebar_first }}
+                </aside>
+              </div>
+            {% endif %}
+            {% if sidebar_second_exists %}
+              <div{{ sidebar_second_attributes }}>
+                <aside class="section" role="complementary">
+                  {{ page.sidebar_second }}
+                </aside>
+              </div>
+            {% endif %}
           </div>
         </div>
 {% endblock %}
 
 {% block footer %}
         <div class="{{ container }}">
+          {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+            <div class="site-footer__top clearfix">
+              {{ page.footer_first }}
+              {{ page.footer_second }}
+              {{ page.footer_third }}
+              {{ page.footer_fourth }}
+            </div>
+          {% endif %}
+          {% if page.footer_fifth %}
+            <div class="site-footer__bottom">
+              {{ page.footer_fifth }}
+            </div>
+          {% endif %}
         </div>
 {% endblock %}

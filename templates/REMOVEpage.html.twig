@@ -1,0 +1,60 @@
+{% block head %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <div class="container-fluid">
+
+    {# Brand #}
+    <a class="navbar-brand fs-1 me-auto" href="#">Greenfile</a>
+
+    {# Navbar Toggler #}
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    {# Collapsible Content #}
+    <div class="collapse navbar-collapse flex-grow-0 ms-auto" id="navbarNav">
+      <ul class="navbar-nav">
+        {% if not user.is_authenticated %}
+          <li class="nav-item mx-3">
+            <a class="nav-link fs-2" href="/my-custom-login">Login</a>
+          </li>
+        {% else %}
+          <li class="nav-item mx-3">
+            <a class="nav-link fs-2" href="/user/logout">Logout</a>
+          </li>
+        {% endif %}
+        <li class="nav-item mx-3">
+          <a class="nav-link fs-2" href="#">Account</a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link fs-2" href="#">Messages</a>
+        </li>
+        <li class="nav-item mx-3">
+          <div class="navbar-nav mx-auto mt-3">
+            {{ page.help }}
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+        <div id="main" class="{{ container }} bg-primary">
+          {{ page.breadcrumb }}
+          <div class="row row-offcanvas row-offcanvas-left clearfix">
+              <main{{ content_attributes }}>
+                <section class="section">
+                  <a href="#main-content" id="main-content" tabindex="-1"></a>
+                  {{ page.content }}
+                </section>
+              </main>
+          </div>
+        </div>
+{% endblock %}
+
+{% block footer %}
+        <div class="{{ container }}">
+        </div>
+{% endblock %}
