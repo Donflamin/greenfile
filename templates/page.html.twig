@@ -73,30 +73,45 @@
 {% set sidebar_second_exists = page.sidebar_second|render|striptags('<img><video><audio><drupal-render-placeholder>')|trim is not empty %}
 
 {% block head %}
-        <header>
 
-          {# Menu toggle button, fixed top-right #}
-          <button type="button" class="btn position-fixed top-0 end-0 m-3"> Insert Menu Icon </button>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/user">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-          <div class="heroHeader container-fluid p-0 h-100">
-            <div class="something">
+<div class="container-fluid p-0 h-100 hero-section">
+  <div class="d-flex align-items-center justify-content-center h-100 position-relative flex-column">
+    <div class="position-absolute h-100 w-100">
+      <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.53/build/spline-viewer.js"></script>
+      <spline-viewer url="https://prod.spline.design/BKrYB9EWPUPZkmVw/scene.splinecode"></spline-viewer>
+    </div>
+    <div class="header-content text-center">
+      <div class="text-content">
+        <h1 class="hero-title">Greenfile</h1>
+        <p class="hero-subtitle">För dina gröna filer ... eller något åt det hållet.</p>
+      </div>
+    </div>
+    <a href="#next-section" class="scroll-down-arrow mt-4" aria-label="Scroll down to next section">
+      <i class="arrow down"></i>
+    </a>
+  </div>
+</div>
 
-              {# Wave animation for header #}
-              <div class="waveAnim position-absolute top-0 end-0 w-100 h-100">
-                <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.53/build/spline-viewer.js"></script>
-                <spline-viewer url="https://prod.spline.design/BKrYB9EWPUPZkmVw/scene.splinecode"></spline-viewer>
-              </div>
-
-              <div class="w-100 h-100">
-                <p>Hejsan svejsan</p>
-              </div>
-
-
-              <div class="collapsibleMenu row">
-            </div>
-          </div>
-
-        </header>
+<div id="next-section" class="next-section"></div>
 
 {% endblock %}
 
@@ -129,19 +144,6 @@
 {% endblock %}
 
 {% block footer %}
-        <div class="{{ container }}">
-          {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
-            <div class="site-footer__top clearfix">
-              {{ page.footer_first }}
-              {{ page.footer_second }}
-              {{ page.footer_third }}
-              {{ page.footer_fourth }}
-            </div>
-          {% endif %}
-          {% if page.footer_fifth %}
-            <div class="site-footer__bottom">
-              {{ page.footer_fifth }}
-            </div>
-          {% endif %}
-        </div>
+
+
 {% endblock %}
